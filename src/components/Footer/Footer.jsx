@@ -1,4 +1,5 @@
 function Footer() {
+    console.log("footer")
     return (
         <footer>
 

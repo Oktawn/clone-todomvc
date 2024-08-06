@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 export const todoStore = create((set, get) => ({
-    todos: { "id": 0, "description": null, "isCompleted": false },
+    todos: [{ "id": 0, "description": "", "isCompleted": false }],
     addTodo: (todo) => set(state => ({
         todos: [...state.todos, todo]
     })),
@@ -14,5 +14,6 @@ export const todoStore = create((set, get) => ({
         todos: state.todos.map(todo =>
             todo.id === id ? { ...todo, description: desc } : todo
         )
-    }))
+    })),
+    countTodos: () => get().todos.length
 }))
